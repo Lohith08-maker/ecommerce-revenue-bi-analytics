@@ -1,0 +1,29 @@
+Revenue =
+SUMX(
+    FILTER('Online Retail',
+        LEFT('Online Retail'[InvoiceNo], 1) <> "C"
+        && 'Online Retail'[Quantity] > 0
+        && 'Online Retail'[UnitPrice] > 0),
+    'Online Retail'[Quantity] * 'Online Retail'[UnitPrice]
+)
+
+Orders =
+CALCULATE(
+    DISTINCTCOUNT('Online Retail'[InvoiceNo]),
+    FILTER('Online Retail',
+        LEFT('Online Retail'[InvoiceNo], 1) <> "C"
+        && 'Online Retail'[Quantity] > 0
+        && 'Online Retail'[UnitPrice] > 0)
+)
+
+Average Order Value = DIVIDE([Revenue], [Orders])
+
+Identified Customers =
+CALCULATE(
+    DISTINCTCOUNT('Online Retail'[CustomerID]),
+    FILTER('Online Retail',
+        LEFT('Online Retail'[InvoiceNo], 1) <> "C"
+        && 'Online Retail'[Quantity] > 0
+        && 'Online Retail'[UnitPrice] > 0
+        && NOT ISBLANK('Online Retail'[CustomerID]))
+)
