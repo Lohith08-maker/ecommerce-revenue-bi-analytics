@@ -1,7 +1,7 @@
 # E-commerce Revenue & Customer Performance
 
 SQL and Power BI/DAX portfolio project analyzing transaction-level e-commerce performance using the UCI Online Retail dataset.
-
+![Power BI E-commerce Revenue & Customer Performance Dashboard](./ecommerce_powerbi_dashboard_preview.png)
 ## Project Overview
 The source dataset contains 541,909 transaction rows from a UK-based non-store retailer, covering 1 December 2010 to 9 December 2011. Completed-sales analysis excludes cancellations and rows with non-positive quantity or unit price, leaving 530,104 valid rows.
 
